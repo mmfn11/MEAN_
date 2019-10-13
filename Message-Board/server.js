@@ -33,7 +33,7 @@ var Comment =mongoose.model('Comment', CommentSchema);
 
 app.get('/', function(req, res) {
     arr = Post.find({}).populate('comments').exec(function(err, posts){
-        console.log('------------------------------');
+        console.log('');
         res.render('index', {p:posts})
     })
     
