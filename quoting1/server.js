@@ -7,17 +7,10 @@ app.use(express.static(__dirname + "/static"));
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/Quoting', {useNewUrlParser: true});
-const QuoteSchema = new mongoose.Schema({
-    name: {type: String, required: true, minlength: 2 },
-    message: {type: String, required: true, minlength: 2}
-    }, {timestamps: true})
-const Quote =mongoose.model('Quote', QuoteSchema); 
+require('./server/config/mongoose.js');
 
 
+// routes_setter(app);
 require('./server/config/routes.js')(app)
 
 app.listen(8000, function() {
