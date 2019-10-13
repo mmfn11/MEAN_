@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/static"));
-
-app.set("views", __dirname + "/views");
+app.use(express.static(__dirname + "/client/static"));
+app.set('views', __dirname + '/client/views');
 app.set("view engine", "ejs");
+
 require('./server/config/mongoose.js');
 
 
